@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './pages/home'
+import Contact from './pages/contact'
+import Knowledge from './pages/knowledge'
+import Notfound from './pages/notfound'
+import Portfolio from './pages/portfolio'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-function App() {
+const App = () => {
+  AOS.init();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/competences" component={Knowledge}/>
+          <Route path="/portfolio" component={Portfolio}/>
+          <Route component={Notfound}/>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;

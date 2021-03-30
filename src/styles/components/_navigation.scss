@@ -1,0 +1,31 @@
+.navigation{
+    font-family: $font-1;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.4em;
+    top: 0px;
+    transition: 0.4s ease;
+    background-color: transparent;
+    z-index: 10;
+    padding-top: 0px;
+}
+li {
+    float: left;
+    transition: .2s ease;
+    &:hover {
+        transform: translate(3px, 3px);
+    }
+    .navActive {
+        color: $color-4;
+    }
+    padding: 0 40px 0 40px;
+}
+span {
+    color: $white;
+}
+ul {
+    margin-top: 2px;
+}

@@ -1,10 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {motion} from "framer-motion";
+
+const pageVariants = {
+  in: {
+    opacity: 1,
+    scale: 1
+  },
+  out: {
+    opacity: 0,
+    scale: 0.8
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1
+}
 
 const Navigation = () => {
   return (
     <>
-      <div className="navigation" id="navbar">
+      <motion.div className="navigation" id="navbar" initial="out" animate="in" exit="out" variants={pageVariants} transition={pageTransition}> 
         <ul>
           <li>
             <NavLink exact to="/" activeClassName="navActive">
@@ -31,7 +49,7 @@ const Navigation = () => {
             </NavLink>
           </li>
         </ul>
-      </div>
+      </motion.div>
     </>
   );
 };
